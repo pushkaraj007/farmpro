@@ -8,11 +8,11 @@ class WeatherApiScreen extends StatefulWidget {
 }
 
 class _WeatherApiScreenState extends State<WeatherApiScreen> {
-  final String apiKey = '4aa36371fc124a6f802130410232506'; // Replace with your weatherapi.com API key
+  final String apiKey = ''; // Replace with your weatherapi.com API key
   final TextEditingController _cityController = TextEditingController(text: 'Kingaon');
   WeatherData? weatherData;
 
-  get link => "https://www.weatherapi.com/"; String title="Weather API";
+  get link => "https://www.weatherapi.com/"; String futitle="Weather API";
 
   @override
   void dispose() {
