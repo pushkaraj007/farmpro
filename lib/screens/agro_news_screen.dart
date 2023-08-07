@@ -307,7 +307,7 @@ class _NewsScreenState extends State<NewsScreen> {
   }
 
   Future<void> fetchNews() async {
-    String url = 'https://newsapi.org/v2/top-headlines?sources=google-news-in&apiKey=6136204c3bf74f7d978a4c72f73d21d0';
+    String url = 'https://newsapi.org/v2/top-headlines?sources=google-news-in&apiKey=';
     var response = await http.get(Uri.parse(url));
     if (response.statusCode == 200) {
       var jsonData = json.decode(response.body);
