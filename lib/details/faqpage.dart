@@ -29,7 +29,7 @@ class FAQPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('FAQ'),
+        title: const Text('FAQ'),
       ),
       body: ListView.builder(
         itemCount: faqItems.length,
@@ -37,7 +37,7 @@ class FAQPage extends StatelessWidget {
           return ExpansionTile(
             title: Text(
               faqItems[index].question,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 18.0,
                 fontWeight: FontWeight.bold,
               ),
@@ -48,7 +48,7 @@ class FAQPage extends StatelessWidget {
                   horizontal: 16.0,
                   vertical: 8.0,
                 ),
-                child: Text(faqItems[index].answer , style: TextStyle(fontSize: 16),),
+                child: Text(faqItems[index].answer , style: const TextStyle(fontSize: 16),),
               ),
             ],
           );

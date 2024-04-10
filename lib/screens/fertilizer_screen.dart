@@ -5,13 +5,13 @@ class FertilizerScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Fertilizer'),
+        title: const Text('Fertilizer'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
+            const Text(
               'Fertilizer Screen',
               style: TextStyle(fontSize: 24),
             ),
@@ -20,7 +20,7 @@ class FertilizerScreen extends StatelessWidget {
                 // Call a function to get fertilizer data
                 _getFertilizerData();
               },
-              child: Text('Get Fertilizer Data'),
+              child: const Text('Get Fertilizer Data'),
             ),
           ],
         ),

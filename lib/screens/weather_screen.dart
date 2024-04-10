@@ -9,7 +9,7 @@ class WeatherApiScreen extends StatefulWidget {
 
 class _WeatherApiScreenState extends State<WeatherApiScreen> {
   final String apiKey = ''; // Replace with your weatherapi.com API key
-  final TextEditingController _cityController = TextEditingController(text: 'Kingaon');
+  final TextEditingController _cityController = TextEditingController(text: 'Mumbai');
   WeatherData? weatherData;
 
   get link => "https://www.weatherapi.com/"; String futitle="Weather API";
@@ -53,7 +53,7 @@ class _WeatherApiScreenState extends State<WeatherApiScreen> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text('Forecast Detail'),
+          title: const Text('Forecast Detail'),
           // decoration: BoxDecoration(
           //   gradient: LinearGradient(
           //     begin: Alignment.topCenter,
@@ -70,7 +70,7 @@ class _WeatherApiScreenState extends State<WeatherApiScreen> {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text('Date: ${forecastDay.date}'),
-              SizedBox(height: 8.0),
+              const SizedBox(height: 8.0),
               Text('Max Temperature: ${forecastDay.maxTemperature}°C'),
               Text('Min Temperature: ${forecastDay.minTemperature}°C'),
               Text('Average Temperature: ${forecastDay.avgTemperature}°C'),
@@ -87,7 +87,7 @@ class _WeatherApiScreenState extends State<WeatherApiScreen> {
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: Text('Close'),
+              child: const Text('Close'),
             ),
           ],
         );
@@ -99,11 +99,11 @@ class _WeatherApiScreenState extends State<WeatherApiScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-        title: Text('Weather'),
+        title: const Text('Weather'),
     ),
     backgroundColor: Colors.transparent,
     body: Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
@@ -123,15 +123,15 @@ class _WeatherApiScreenState extends State<WeatherApiScreen> {
                 Expanded(
                   child: TextField(
                     controller: _cityController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       hintText: 'Enter city name',
                     ),
                   ),
                 ),
-                SizedBox(width: 16.0),
+                const SizedBox(width: 16.0),
                 ElevatedButton(
                   onPressed: _searchCity,
-                  child: Text('Search'),
+                  child: const Text('Search'),
                 ),
               ],
             ),
@@ -146,56 +146,56 @@ class _WeatherApiScreenState extends State<WeatherApiScreen> {
                   children: [
                     Text(
                       'City: ${weatherData!.location}',
-                      style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+                      style: const TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(height: 16.0),
+                    const SizedBox(height: 16.0),
                     Text(
                       'Temperature: ${weatherData!.temperature}°C',
-                      style: TextStyle(fontSize: 24.0),
+                      style: const TextStyle(fontSize: 24.0),
                     ),
                     Text(
                       'Condition: ${weatherData!.condition}',
-                      style: TextStyle(fontSize: 24.0),
+                      style: const TextStyle(fontSize: 24.0),
                     ),
                     Text(
                       'Humidity: ${weatherData!.humidity}%',
-                      style: TextStyle(fontSize: 24.0),
+                      style: const TextStyle(fontSize: 24.0),
                     ),
                     Text(
                       'Wind Speed: ${weatherData!.windSpeed} km/h',
-                      style: TextStyle(fontSize: 24.0),
+                      style: const TextStyle(fontSize: 24.0),
                     ),
                     // Text(
                     //   'Chances of Rain: ${weatherData!.forecast} km/h',
                     //   style: TextStyle(fontSize: 24.0),
                     // ),
-                    SizedBox(height: 24.0),
-                    Text(
+                    const SizedBox(height: 24.0),
+                    const Text(
                       'Forecast:',
                       style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(height: 16.0),
+                    const SizedBox(height: 16.0),
                     ListView.builder(
                       shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
+                      physics: const NeverScrollableScrollPhysics(),
                       itemCount: weatherData!.forecast.length,
                       itemBuilder: (context, index) {
                         var forecastDay = weatherData!.forecast[index];
                         return Card(
                           elevation: 50.0,
-                          color:  Color(0xFFE7F8E9),
+                          color:  const Color(0xFFE7F8E9),
                           child: ListTile(
                             onTap: () {
                               _showForecastDetail(forecastDay);
                             },
                             title: Text(
                               'Date: ${forecastDay.date}',
-                              style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                              style: const TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
                             ),
                             subtitle: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                SizedBox(height: 10.0),
+                                const SizedBox(height: 10.0),
                                 Text('Max Temperature: ${forecastDay.maxTemperature}°C'),
                                 Text('Min Temperature: ${forecastDay.minTemperature}°C'),
                               ],
@@ -208,9 +208,9 @@ class _WeatherApiScreenState extends State<WeatherApiScreen> {
                 ),
               ),
             )
-                : Center(
+                : const Center(
     child: Text(
-    'Enter a city name and click Search.\nYour Weather Data will be displayed here',
+    'Loading',
     style: TextStyle(
     fontSize: 20.0,
     ),

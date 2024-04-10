@@ -4,11 +4,13 @@ import 'package:farmpro/details/aboutus.dart';
 import 'package:farmpro/details/contactus.dart';
 
 class HelpScreen extends StatelessWidget {
+  const HelpScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Help',
           style: TextStyle(
             color: Colors.white,
@@ -16,7 +18,7 @@ class HelpScreen extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        backgroundColor: Color(0xFF4BAE4F),
+        backgroundColor: const Color(0xFF4BAE4F),
         elevation: 0,
       ),
       body: Stack(
@@ -25,7 +27,7 @@ class HelpScreen extends StatelessWidget {
             color: Colors.white,
           ),
           Container(
-            color: Color(0xFFD8E0D3),
+            color: const Color(0xFFD8E0D3),
             height: MediaQuery.of(context).size.height * 0.9,
           ),
           Positioned(
@@ -41,8 +43,8 @@ class HelpScreen extends StatelessWidget {
                   width: 500.0,
                   fit: BoxFit.cover,
                 ),
-                SizedBox(height: 0.0),
-                Text(
+                const SizedBox(height: 0.0),
+                const Text(
                   'How can we assist you?',
                   style: TextStyle(
                     fontSize: 24.0,
@@ -61,7 +63,7 @@ class HelpScreen extends StatelessWidget {
             child: Container(
               decoration: BoxDecoration(
                 color: Colors.grey[200],
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(32.0),
                   topRight: Radius.circular(32.0),
                 ),
@@ -81,18 +83,18 @@ class HelpScreen extends StatelessWidget {
                         );
                               },
                     ),
-                    SizedBox(height: 24.0),
+                    const SizedBox(height: 24.0),
                     _buildOption(
                       icon: Icons.email,
                       title: 'Contact Us',
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => ContactUs()),
+                          MaterialPageRoute(builder: (context) => const ContactUs()),
                         );
                       },
                     ),
-                    SizedBox(height: 24.0),
+                    const SizedBox(height: 24.0),
                     _buildOption(
                       icon: Icons.info,
                       title: 'About',
@@ -121,7 +123,7 @@ class HelpScreen extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(16.0),
@@ -130,20 +132,20 @@ class HelpScreen extends StatelessWidget {
               color: Colors.grey.withOpacity(0.3),
               spreadRadius: 2,
               blurRadius: 8,
-              offset: Offset(0, 2),
+              offset: const Offset(0, 2),
             ),
           ],
         ),
         child: Row(
           children: [
-            Icon(icon, color: Color(0xFF4BAE4F), size: 28.0),
-            SizedBox(width: 16.0),
+            Icon(icon, color: const Color(0xFF4BAE4F), size: 28.0),
+            const SizedBox(width: 16.0),
             Text(
               title,
-              style: TextStyle(fontSize: 20.0, color: Colors.black),
+              style: const TextStyle(fontSize: 20.0, color: Colors.black),
             ),
-            Spacer(),
-            Icon(Icons.arrow_forward_ios, color: Colors.grey, size: 18.0),
+            const Spacer(),
+            const Icon(Icons.arrow_forward_ios, color: Colors.grey, size: 18.0),
           ],
         ),
       ),

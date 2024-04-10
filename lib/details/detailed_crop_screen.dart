@@ -1,6 +1,4 @@
-import 'package:farmpro/screens/dashboard_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class CropDetailsScreen extends StatelessWidget {
@@ -24,7 +22,7 @@ class CropDetailsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(cropName),
-        actions: [
+        actions: const [
           // IconButton(
           //   icon: Icon(Icons.home),
           //   onPressed: () {
@@ -40,7 +38,7 @@ class CropDetailsScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.fromLTRB(10, 1, 10, 10),
+          padding: const EdgeInsets.fromLTRB(10, 1, 10, 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -48,17 +46,17 @@ class CropDetailsScreen extends StatelessWidget {
                 imagePath,
                 height: 280,
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Center(
                 child: Text(
                   cropName,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -71,20 +69,20 @@ class CropDetailsScreen extends StatelessWidget {
                         ),
                       );
                     },
-                    child: Text('Open in WebView'),
+                    child: const Text('Open in WebView'),
                   ),
                 ],
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Text(
                 cropInfo,
-                style: TextStyle(fontSize: 24),
+                style: const TextStyle(fontSize: 24),
                 textAlign: TextAlign.center,
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Text(
                 cropGrowth,
-                style: TextStyle(fontSize: 24),
+                style: const TextStyle(fontSize: 24),
                 textAlign: TextAlign.center,
               ),
             ],

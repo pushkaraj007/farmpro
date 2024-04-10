@@ -179,7 +179,7 @@ class _MarketplaceScreenState extends State<MarketplaceScreen> {
 
   Future<void> _launchUrl(String item) async {
     String currentDate = DateFormat('dd-MMM-yyyy').format(DateTime.now());
-    String url = 'https://agmarknet.gov.in/SearchCmmMkt.aspx?Tx_Commodity=${_cropUrls[item]!['Tx_Commodity']}&Tx_State=MH&Tx_District=7&Tx_Market=1445&DateFrom=01-Jul-2023&DateTo=08-Jul-2023&Fr_Date=01-Jul-2023&To_Date=08-Jul-2023&Tx_Trend=0&Tx_CommodityHead=${_cropUrls[item]!['Tx_CommodityHead']}&Tx_StateHead=Maharashtra&Tx_DistrictHead=Jalgaon&Tx_MarketHead=${_cropUrls[item]!['Tx_MarketHead']}&dt=$currentDate';
+    String url = 'https://agmarknet.gov.in/SearchCmmMkt.aspx?Tx_Commodity=${_cropUrls[item]!['Tx_Commodity']}&Tx_State=MH&Tx_District=7&Tx_Market=1445&DateFrom=01-Jul-2023&DateTo=$currentDate&Fr_Date=01-Jul-2023&To_Date=$currentDate&Tx_Trend=0&Tx_CommodityHead=${_cropUrls[item]!['Tx_CommodityHead']}&Tx_StateHead=Maharashtra&Tx_DistrictHead=Jalgaon&Tx_MarketHead=${_cropUrls[item]!['Tx_MarketHead']}&dt=$currentDate';
 
     if (await canLaunch(url)) {
       await launch(url);

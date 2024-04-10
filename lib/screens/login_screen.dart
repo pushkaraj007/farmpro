@@ -5,6 +5,8 @@ import 'package:farmpro/screens/signup_screen.dart';
 import 'package:farmpro/screens/dashboard_screen.dart';
 import '../details/forgotpasswordscreen.dart';
 class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
+
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
@@ -38,15 +40,13 @@ class _LoginScreenState extends State<LoginScreen> {
             password: _password,
           );
 
-          if (userCredential != null) {
-            // Login successful
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => DashboardScreen(userEmail: userEmail)),
-            );
-            print('Login successful');
-          }
-        } else {
+          // Login successful
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => DashboardScreen(userEmail: userEmail)),
+          );
+          print('Login successful');
+                } else {
           setState(() {
             _errorMessage = 'User not found. Please enter a valid username.';
           });
@@ -97,7 +97,7 @@ class _LoginScreenState extends State<LoginScreen> {
         Align(
         alignment: Alignment.center,
         child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage('images/frame5.png'),
               fit: BoxFit.fill,
@@ -106,19 +106,19 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Center(
             child: SingleChildScrollView(
               child: Padding(
-                padding: EdgeInsets.fromLTRB(16, 16, 16, 16),
+                padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       'Welcome to FarmPro',
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 16),
-                    Text(
+                    const SizedBox(height: 16),
+                    const Text(
                       'Kindly Log in to continue our app',
                       style: TextStyle(
                         fontSize: 18,
@@ -130,15 +130,15 @@ class _LoginScreenState extends State<LoginScreen> {
                       width: 3000,
                       fit: BoxFit.fitWidth,
                     ),
-                    SizedBox(height: 0),
+                    const SizedBox(height: 0),
                     Form(
                       key: _formKey,
                       child: Padding(
-                        padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                        padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
                         child: Column(
                             children: [
                         TextFormField(
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                         labelText: 'Username',
                             border
                             : OutlineInputBorder(),
@@ -153,9 +153,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         _username = value!;
                       },
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                     TextFormField(
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'Password',
                         border: OutlineInputBorder(),
                       ),
@@ -170,23 +170,23 @@ class _LoginScreenState extends State<LoginScreen> {
                         _password = value!;
                       },
                     ),
-                    SizedBox(height: 20.0),
+                    const SizedBox(height: 20.0),
                     ElevatedButton(
-                      child: Text('Login', style: TextStyle(fontSize: 18)),
+                      child: const Text('Login', style: TextStyle(fontSize: 18)),
                       onPressed: _login,
                     ),
                     TextButton(
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => ResetPasswordScreen()),
+                          MaterialPageRoute(builder: (context) => const ResetPasswordScreen()),
                         );
                       },
-                      child: Text('Forgot Password ?', style: TextStyle(fontSize: 16),),
+                      child: const Text('Forgot Password ?', style: TextStyle(fontSize: 16),),
                     ),
-                    SizedBox(height: 0),
+                    const SizedBox(height: 0),
                     TextButton(
-                      child: Text('Don\'t have an account ? Sign Up!', style: TextStyle(fontSize: 16)),
+                      child: const Text('Don\'t have an account ? Sign Up!', style: TextStyle(fontSize: 16)),
                       onPressed: () {
                         Navigator.push(
                           context,
@@ -197,7 +197,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     if (_errorMessage.isNotEmpty)
                       Text(
                         _errorMessage,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.red,
                           fontSize: 16.0,
                         ),

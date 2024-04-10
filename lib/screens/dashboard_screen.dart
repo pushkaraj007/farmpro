@@ -3,7 +3,6 @@ import 'package:farmpro/details/feedback.dart';
 import 'package:farmpro/details/new.dart';
 import 'package:farmpro/details/profile.dart';
 import 'package:farmpro/details/settings.dart';
-import 'package:farmpro/details/translation.dart';
 import 'package:farmpro/screens/fertilizer_screen.dart';
 import 'package:farmpro/screens/weathermap.dart';
 import 'package:farmpro/screens/pesticide_screen.dart';
@@ -184,7 +183,7 @@ class DashboardScreen extends StatelessWidget {
               end: Alignment.bottomCenter,
               colors: [
                 Color(0xFFFFFFFF), // Hex value: #66FF33 (green)
-                Color(0xFF86E591), // Hex value: #3366FF (blue)
+                Color(0xFF5EFF6F), // Hex value: #3366FF (blue)
               ],
             ),
             // image: DecorationImage(

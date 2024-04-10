@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:farmpro/screens/dashboard_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
 import 'login_screen.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -48,11 +47,11 @@ class _SignupScreenState extends State<SignupScreen> {
             context: context,
             builder: (BuildContext context) {
               return AlertDialog(
-                title: Text('Signup Successful'),
-                content: Text('You have successfully signed up. \n Press OK to continue'),
+                title: const Text('Signup Successful'),
+                content: const Text('You have successfully signed up. \n Press OK to continue'),
                 actions: [
                   TextButton(
-                    child: Text('OK'),
+                    child: const Text('OK'),
                     onPressed: () {
                       Navigator.of(context).pop();
                       Navigator.pushReplacement(
@@ -74,11 +73,11 @@ class _SignupScreenState extends State<SignupScreen> {
           context: context,
           builder: (BuildContext context) {
             return AlertDialog(
-              title: Text('Signup Error'),
-              content: Text('An error occurred while signing up. Please try again.'),
+              title: const Text('Signup Error'),
+              content: const Text('An error occurred while signing up. Please try again.'),
               actions: [
                 TextButton(
-                  child: Text('OK'),
+                  child: const Text('OK'),
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
@@ -93,7 +92,7 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('images/frame5.png'),
             fit: BoxFit.fill,
@@ -103,7 +102,7 @@ class _SignupScreenState extends State<SignupScreen> {
       backgroundColor: Colors.transparent,
 
       appBar: AppBar(
-        title: Text('Sign Up'),
+        title: const Text('Sign Up'),
         automaticallyImplyLeading: false, // Remove back button
 
       ),
@@ -115,13 +114,13 @@ class _SignupScreenState extends State<SignupScreen> {
         child: Container(
 
           child : Container(
-            padding: EdgeInsets.fromLTRB(16, 0, 16, 16),
+            padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
             child: Center(
               child: SingleChildScrollView(
               child: Form(
               key: _formKey,
               child: Padding(
-              padding: EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(16.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -132,7 +131,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     fit: BoxFit.fitWidth,
                   ),
                   TextFormField(
-                    decoration: InputDecoration(labelText: 'Email'),
+                    decoration: const InputDecoration(labelText: 'Email'),
                     validator: (value) {
                       if (value!.isEmpty) {
                         return 'Please enter your email';
@@ -143,9 +142,9 @@ class _SignupScreenState extends State<SignupScreen> {
                       _email = value!;
                     },
                   ),
-                  SizedBox(height: 14.0),
+                  const SizedBox(height: 14.0),
                   TextFormField(
-                    decoration: InputDecoration(labelText: 'Username'),
+                    decoration: const InputDecoration(labelText: 'Username'),
                     validator: (value) {
                       if (value!.isEmpty) {
                         return 'Please enter your username';
@@ -156,9 +155,9 @@ class _SignupScreenState extends State<SignupScreen> {
                       _username = value!;
                     },
                   ),
-                  SizedBox(height: 14.0),
+                  const SizedBox(height: 14.0),
                   TextFormField(
-                    decoration: InputDecoration(labelText: 'Name'),
+                    decoration: const InputDecoration(labelText: 'Name'),
                     validator: (value) {
                       if (value!.isEmpty) {
                         return 'Please enter your name';
@@ -169,9 +168,9 @@ class _SignupScreenState extends State<SignupScreen> {
                       _name = value!;
                     },
                   ),
-                  SizedBox(height: 14.0),
+                  const SizedBox(height: 14.0),
                   TextFormField(
-                    decoration: InputDecoration(labelText: 'Contact No'),
+                    decoration: const InputDecoration(labelText: 'Contact No'),
                     keyboardType: TextInputType.phone,
                     validator: (value) {
                       if (value!.isEmpty) {
@@ -183,9 +182,9 @@ class _SignupScreenState extends State<SignupScreen> {
                       _contactNo = value!;
                     },
                   ),
-                  SizedBox(height: 14.0),
+                  const SizedBox(height: 14.0),
                   TextFormField(
-                    decoration: InputDecoration(labelText: 'Address'),
+                    decoration: const InputDecoration(labelText: 'Address'),
                     validator: (value) {
                       if (value!.isEmpty) {
                         return 'Please enter your address';
@@ -196,9 +195,9 @@ class _SignupScreenState extends State<SignupScreen> {
                       _address = value!;
                     },
                   ),
-                  SizedBox(height: 14.0),
+                  const SizedBox(height: 14.0),
                   TextFormField(
-                    decoration: InputDecoration(labelText: 'Password'),
+                    decoration: const InputDecoration(labelText: 'Password'),
                     obscureText: true,
                     validator: (value) {
                       if (value!.isEmpty) {
@@ -210,17 +209,17 @@ class _SignupScreenState extends State<SignupScreen> {
                       _password = value!;
                     },
                   ),
-                  SizedBox(height: 15.0),
+                  const SizedBox(height: 15.0),
                   ElevatedButton(
-                    child: Text('Sign Up'),
+                    child: const Text('Sign Up'),
                     onPressed: _signUp,
                   ),
                   ElevatedButton(
-                    child: Text('Already have an account? Login'),
+                    child: const Text('Already have an account? Login'),
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => LoginScreen()),
+                        MaterialPageRoute(builder: (context) => const LoginScreen()),
                       );
                     },
                   ),

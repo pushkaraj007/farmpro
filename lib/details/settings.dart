@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import '../screens/login_screen.dart';
 
 class SettingsScreen extends StatelessWidget {
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  const SettingsScreen({super.key});
+
 
   Future<void> _logout(BuildContext context) async {
     try {
@@ -17,7 +18,7 @@ class SettingsScreen extends StatelessWidget {
     } catch (e) {
       print('Error occurred during logout: $e');
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Error occurred during logout.')),
+        const SnackBar(content: Text('Error occurred during logout.')),
       );
     }
   }
@@ -26,48 +27,48 @@ class SettingsScreen extends StatelessWidget {
     return Scaffold(
 
       appBar: AppBar(
-        title: Text('Settings'),
+        title: const Text('Settings'),
       ),
       body: ListView(
 
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         children: [
           ListTile(
-            title: Text('Notification Settings'),
-            subtitle: Text('Configure app notifications'),
-            trailing: Icon(Icons.notifications),
+            title: const Text('Notification Settings'),
+            subtitle: const Text('Configure app notifications'),
+            trailing: const Icon(Icons.notifications),
             onTap: () {
               // Navigate to notification settings screen
             },
           ),
           ListTile(
-            title: Text('Language'),
-            subtitle: Text('Change app language'),
-            trailing: Icon(Icons.language),
+            title: const Text('Language'),
+            subtitle: const Text('Change app language'),
+            trailing: const Icon(Icons.language),
             onTap: () {
               // Navigate to language selection screen
             },
           ),
           ListTile(
-            title: Text('Units'),
-            subtitle: Text('Select preferred unit system'),
-            trailing: Icon(Icons.format_list_numbered),
+            title: const Text('Units'),
+            subtitle: const Text('Select preferred unit system'),
+            trailing: const Icon(Icons.format_list_numbered),
             onTap: () {
               // Navigate to unit selection screen
             },
           ),
           ListTile(
-            title: Text('About'),
-            subtitle: Text('View app information'),
-            trailing: Icon(Icons.info),
+            title: const Text('About'),
+            subtitle: const Text('View app information'),
+            trailing: const Icon(Icons.info),
             onTap: () {
               // Navigate to about screen
             },
           ),
           ListTile(
-            title: Text('Logout'),
-            subtitle: Text('Sign out of the app'),
-            trailing: Icon(Icons.logout),
+            title: const Text('Logout'),
+            subtitle: const Text('Sign out of the app'),
+            trailing: const Icon(Icons.logout),
             onTap: () => _logout(context),
 
           ),

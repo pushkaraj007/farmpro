@@ -209,26 +209,28 @@
 //   }
 // }
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:url_launcher/url_launcher.dart';
 import 'dart:convert';
-import 'package:webview_flutter/webview_flutter.dart';
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: TabScreen(),
+    return const MaterialApp(
+      home: const TabScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
 }
 
 class TabScreen extends StatefulWidget {
+  const TabScreen({super.key});
+
   @override
   _TabScreenState createState() => _TabScreenState();
 }
@@ -252,13 +254,13 @@ class _TabScreenState extends State<TabScreen> with SingleTickerProviderStateMix
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('News'),
+        title: const Text('News'),
       ),
       body: Column(
         children: [
           TabBar(
             controller: _tabController,
-            tabs: [
+            tabs: const [
               Tab(
                 text: 'News API',
               ),
@@ -266,7 +268,7 @@ class _TabScreenState extends State<TabScreen> with SingleTickerProviderStateMix
                 text: 'Google News',
               ),
             ],
-            indicator: BoxDecoration(
+            indicator: const BoxDecoration(
               color: Colors.green,
             ),
             labelColor: Colors.white,
@@ -275,10 +277,10 @@ class _TabScreenState extends State<TabScreen> with SingleTickerProviderStateMix
           Expanded(
             child: TabBarView(
               controller: _tabController,
-              physics: NeverScrollableScrollPhysics(), // Disable swipe gesture
+              physics: const NeverScrollableScrollPhysics(), // Disable swipe gesture
               children: [
-                NewsScreen(),
-                GoogleNewsScreen(),
+                const NewsScreen(),
+                const GoogleNewsScreen(),
               ],
             ),
           ),
@@ -290,6 +292,8 @@ class _TabScreenState extends State<TabScreen> with SingleTickerProviderStateMix
 
 
 class NewsScreen extends StatefulWidget {
+  const NewsScreen({super.key});
+
   @override
   _NewsScreenState createState() => _NewsScreenState();
 }
@@ -335,7 +339,7 @@ class _NewsScreenState extends State<NewsScreen> {
       body: Column(
         children: [
           Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8.0),
             child: TextField(
               controller: _searchController,
               decoration: InputDecoration(
@@ -355,7 +359,7 @@ class _NewsScreenState extends State<NewsScreen> {
           ),
           DropdownButton<String>(
             value: selectedLanguage,
-            items: [
+            items: const [
               DropdownMenuItem(
                 value: 'hi',
                 child: Text('Hindi'),
@@ -407,7 +411,7 @@ class _NewsScreenState extends State<NewsScreen> {
 class NewsDetails extends StatelessWidget {
   final Map<String, dynamic> article;
 
-  NewsDetails(this.article);
+  NewsDetails(this.article, {super.key});
 
   Future<void> _openInBrowser() async {
     if (await canLaunch(article['url'])) {
@@ -428,7 +432,7 @@ class NewsDetails extends StatelessWidget {
           Center( heightFactor: 15,
           child: ElevatedButton(
             onPressed: _openInBrowser,
-            child: Text('Open in Browser'),
+            child: const Text('Open in Browser'),
           ),
           ),
         ],
@@ -438,6 +442,8 @@ class NewsDetails extends StatelessWidget {
 }
 
 class GoogleNewsScreen extends StatefulWidget {
+  const GoogleNewsScreen({super.key});
+
   @override
   _GoogleNewsScreenState createState() => _GoogleNewsScreenState();
 }
@@ -461,7 +467,7 @@ class _GoogleNewsScreenState extends State<GoogleNewsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(
         child: CircularProgressIndicator(),
       ),

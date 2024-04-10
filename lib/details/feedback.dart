@@ -3,6 +3,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class FeedbackScreen extends StatefulWidget {
+  const FeedbackScreen({super.key});
+
   @override
   _FeedbackScreenState createState() => _FeedbackScreenState();
 }
@@ -29,11 +31,11 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text('Validation Error'),
-            content: Text('Please enter your name , Email and feedback.'),
+            title: const Text('Validation Error'),
+            content: const Text('Please enter your name , Email and feedback.'),
             actions: <Widget>[
               ElevatedButton(
-                child: Text('OK'),
+                child: const Text('OK'),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
@@ -60,11 +62,11 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Success'),
-          content: Text('Thank you for your feedback!\nWe will get in touch with you soon'),
+          title: const Text('Success'),
+          content: const Text('Thank you for your feedback!\nWe will get in touch with you soon'),
           actions: <Widget>[
             ElevatedButton(
-              child: Text('OK'),
+              child: const Text('OK'),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -98,10 +100,10 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Feedback'),
+        title: const Text('Feedback'),
       ),
       body: Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
       gradient: LinearGradient(
       begin: Alignment.topCenter,
       end: Alignment.bottomCenter,
@@ -113,7 +115,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
       ),
       child: SingleChildScrollView( // Wrap the Column with SingleChildScrollView
       child: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
             Container(
@@ -124,36 +126,36 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
               fit: BoxFit.fitWidth,
               height: 120 , width: 300,),
 
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
 
             // Feedback form
             TextField(
               controller: _nameController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Your Name',
               ),
             ),
             TextField(
               controller: _emailController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Your Email',
               ),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             TextField(
               controller: _feedbackController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Feedback',
               ),
               maxLines: 5,
             ),
 
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
 
             // Submit button
             ElevatedButton(
-              child: Text('Submit'),
               onPressed: _submitFeedback,
+              child: const Text('Submit'),
             ),
           ],
         ),
@@ -162,8 +164,8 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
       ),
       bottomNavigationBar: Container(
         color: Colors.white,
-        padding: EdgeInsets.all(16),
-        child: Column(
+        padding: const EdgeInsets.all(16),
+        child: const Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: [

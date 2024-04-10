@@ -16,14 +16,14 @@ class _AboutUsScreenState extends State<AboutUsScreen>
   void initState() {
     super.initState();
     _animationController = AnimationController(
-      duration: Duration(seconds: 5),
+      duration: const Duration(seconds: 5),
       vsync: this,
     )..repeat(reverse: true);
 
     _colorAnimation = _animationController.drive(
       ColorTween(
-        begin: Color(0xFF4BAE4F),
-        end: Color(0xFFFFFFFF),
+        begin: const Color(0xFF4BAE4F),
+        end: const Color(0xFFFFFFFF),
       ),
     );
   }
@@ -38,7 +38,7 @@ class _AboutUsScreenState extends State<AboutUsScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('About Us'),
+        title: const Text('About Us'),
       ),
       body: AnimatedBuilder(
         animation: _animationController,
@@ -56,7 +56,7 @@ class _AboutUsScreenState extends State<AboutUsScreen>
                 ],
               ),
             ),
-              padding: EdgeInsets.fromLTRB(16, 16, 16, 45),
+              padding: const EdgeInsets.fromLTRB(16, 16, 16, 45),
               child: Column(
                 children: [
                   _buildSection(
@@ -64,13 +64,13 @@ class _AboutUsScreenState extends State<AboutUsScreen>
                     content:
                     'To provide farmers with the tools and resources they need to succeed in their agricultural endeavors.',
                   ),
-                  SizedBox(height: 16.0),
+                  const SizedBox(height: 16.0),
                   _buildSection(
                     title: 'Our Mission',
                     content:
                     'To provide farmers with the tools and resources they need to succeed in their agricultural endeavors.',
                   ),
-                  SizedBox(height: 16.0),
+                  const SizedBox(height: 16.0),
                   _buildSection(
                     title: 'About Us',
                     content:
@@ -91,29 +91,29 @@ class _AboutUsScreenState extends State<AboutUsScreen>
         List<ContactInfo>? contacts}) {
     return Container(
       decoration: BoxDecoration(
-        color: Color(0xFFE5FFE5),
+        color: const Color(0xFFE5FFE5),
         borderRadius: BorderRadius.circular(8.0),
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.3),
             spreadRadius: 2,
             blurRadius: 4,
-            offset: Offset(0, 2),
+            offset: const Offset(0, 2),
           ),
         ],
       ),
-      padding: EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(16.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 24.0,
               fontWeight: FontWeight.bold,
             ),
           ),
-          SizedBox(height: 8.0),
+          const SizedBox(height: 8.0),
           Text(
             content,
             style: TextStyle(

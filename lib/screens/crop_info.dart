@@ -7,10 +7,10 @@ class CropInfoScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Crop Info'),
+        title: const Text('Crop Info'),
       ),
       body: Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
     gradient: LinearGradient(
     begin: Alignment.topCenter,
     end: Alignment.bottomCenter,
@@ -23,14 +23,14 @@ class CropInfoScreen extends StatelessWidget {
     ),
     child: GridView.count(
     crossAxisCount: 2,
-    padding: EdgeInsets.all(16.0),
+    padding: const EdgeInsets.all(16.0),
     childAspectRatio: 0.9,
     mainAxisSpacing: 20.0,
     crossAxisSpacing: 20.0,
     children: [
           CropOption(
             title: 'Rice',
-            image: AssetImage('images/rice.jpeg'),
+            image: const AssetImage('images/rice.jpeg'),
             onTap: () {
               Navigator.push(
                 context,
@@ -67,7 +67,7 @@ class CropInfoScreen extends StatelessWidget {
 
           CropOption(
             title: 'Wheat',
-            image: AssetImage('images/wheat.jpeg'),
+            image: const AssetImage('images/wheat.jpeg'),
             onTap: () {
               Navigator.push(
                 context,
@@ -85,7 +85,7 @@ class CropInfoScreen extends StatelessWidget {
           ),
           CropOption(
             title: 'Cotton',
-            image: AssetImage('images/cotton.png'),
+            image: const AssetImage('images/cotton.png'),
             onTap: () {
     Navigator.push(
     context,
@@ -104,7 +104,7 @@ class CropInfoScreen extends StatelessWidget {
           ),
           CropOption(
             title: 'Sugarcane',
-            image: AssetImage('images/sugarcane.jpeg'),
+            image: const AssetImage('images/sugarcane.jpeg'),
             onTap: () {
               Navigator.push(
                 context,
@@ -122,7 +122,7 @@ class CropInfoScreen extends StatelessWidget {
           ),
           CropOption(
             title: 'Maize',
-            image: AssetImage('images/maize.png'),
+            image: const AssetImage('images/maize.png'),
             onTap: () {
               Navigator.push(
                 context,
@@ -140,7 +140,7 @@ class CropInfoScreen extends StatelessWidget {
           ),
           CropOption(
             title: 'Potato',
-            image: AssetImage('images/potato.png'),
+            image: const AssetImage('images/potato.png'),
             onTap: () {
               Navigator.push(
                 context,
@@ -158,7 +158,7 @@ class CropInfoScreen extends StatelessWidget {
           ),
           CropOption(
             title: 'Tomato',
-            image: AssetImage('images/tomato.png'),
+            image: const AssetImage('images/tomato.png'),
             onTap: () {
               Navigator.push(
                 context,
@@ -176,7 +176,7 @@ class CropInfoScreen extends StatelessWidget {
           ),
           CropOption(
             title: 'Onion',
-            image: AssetImage('images/onion.png'),
+            image: const AssetImage('images/onion.png'),
             onTap: () {
               Navigator.push(
                 context,
@@ -194,7 +194,7 @@ class CropInfoScreen extends StatelessWidget {
           ),
           CropOption(
             title: 'Mango',
-            image: AssetImage('images/mango.png'),
+            image: const AssetImage('images/mango.png'),
             onTap: () {
               Navigator.push(
                 context,
@@ -212,7 +212,7 @@ class CropInfoScreen extends StatelessWidget {
           ),
           CropOption(
             title: 'Banana',
-            image: AssetImage('images/banana.png'),
+            image: const AssetImage('images/banana.png'),
             onTap: () {
               Navigator.push(
                 context,
@@ -269,7 +269,7 @@ class CropOption extends StatelessWidget {
               color: Colors.grey.withOpacity(0.5),
               spreadRadius: 2.0,
               blurRadius: 6.0,
-              offset: Offset(0, 3),
+              offset: const Offset(0, 3),
             ),
           ],
         ),
@@ -300,7 +300,7 @@ class CropOption extends StatelessWidget {
             ),
             Text(
               title,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 24.0,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,

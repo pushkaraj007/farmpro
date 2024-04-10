@@ -124,12 +124,12 @@ class _NewsScreenState extends State<NewsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('News App'),
+        title: const Text('News App'),
       ),
       body: Column(
         children: [
           Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8.0),
             child: TextField(
               controller: _searchController,
               decoration: InputDecoration(
@@ -149,7 +149,7 @@ class _NewsScreenState extends State<NewsScreen> {
           ),
           DropdownButton<String>(
             value: selectedLanguage,
-            items: [
+            items: const [
               DropdownMenuItem(
                 value: 'hi',
                 child: Text('Hindi'),

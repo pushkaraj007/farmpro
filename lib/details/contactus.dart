@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ContactUs extends StatefulWidget {
+  const ContactUs({super.key});
+
   @override
   _ContactUsState createState() => _ContactUsState();
 }
@@ -14,14 +16,14 @@ class _ContactUsState extends State<ContactUs>
   void initState() {
     super.initState();
     _animationController = AnimationController(
-      duration: Duration(seconds: 5),
+      duration: const Duration(seconds: 5),
       vsync: this,
     )..repeat(reverse: true);
 
     _colorAnimation = _animationController.drive(
       ColorTween(
-        begin: Color(0xFF9FFDA1),
-        end: Color(0xFFFFFFFF),
+        begin: const Color(0xFF9FFDA1),
+        end: const Color(0xFFFFFFFF),
       ),
     );
   }
@@ -36,7 +38,7 @@ class _ContactUsState extends State<ContactUs>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Contact Us'),
+        title: const Text('Contact Us'),
       ),
       body: AnimatedBuilder(
         animation: _animationController,
@@ -54,10 +56,10 @@ class _ContactUsState extends State<ContactUs>
                 ],
               ),
             ),
-              padding: EdgeInsets.fromLTRB(16, 16, 16, 200),
+              padding: const EdgeInsets.fromLTRB(16, 16, 16, 200),
               child: Column(
                 children: [
-                  SizedBox(height: 210.0),
+                  const SizedBox(height: 210.0),
                   _buildSection(
                     title: 'Contact Us',
                     content:
@@ -91,29 +93,29 @@ class _ContactUsState extends State<ContactUs>
         List<ContactInfo>? contacts}) {
     return Container(
       decoration: BoxDecoration(
-        color: Color(0xFFE5FFE5),
+        color: const Color(0xFFE5FFE5),
         borderRadius: BorderRadius.circular(8.0),
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.3),
             spreadRadius: 2,
             blurRadius: 4,
-            offset: Offset(0, 2),
+            offset: const Offset(0, 2),
           ),
         ],
       ),
-      padding: EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(16.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 24.0,
               fontWeight: FontWeight.bold,
             ),
           ),
-          SizedBox(height: 8.0),
+          const SizedBox(height: 8.0),
           Text(
             content,
             style: TextStyle(

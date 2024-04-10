@@ -3,10 +3,12 @@ import 'package:intl/intl.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,12 +16,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: WebScreen(),
+      home: const WebScreen(),
     );
   }
 }
 
 class WebScreen extends StatefulWidget {
+  const WebScreen({super.key});
+
   @override
   _WebScreenState createState() => _WebScreenState();
 }
@@ -41,7 +45,7 @@ class _WebScreenState extends State<WebScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Web View'),
+        title: const Text('Web View'),
       ),
       body: WebView(
         initialUrl: currentUrl,

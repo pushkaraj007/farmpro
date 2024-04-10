@@ -37,7 +37,6 @@ class PesticideScreen extends StatefulWidget {
 
 class _PesticideScreenState extends State<PesticideScreen> {
   TextEditingController _searchController = TextEditingController();
-  String _searchQuery = '';
   List<Pesticide> _pesticides = [
     Pesticide(
       name: 'Cotton',
@@ -157,7 +156,6 @@ class _PesticideScreenState extends State<PesticideScreen> {
 
   void _filterPesticides(String query) {
     setState(() {
-      _searchQuery = query;
       _filteredPesticides = _pesticides
           .where((pesticide) => pesticide.name.toLowerCase().contains(query.toLowerCase()))
           .toList();
@@ -177,10 +175,10 @@ class _PesticideScreenState extends State<PesticideScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Pesticide Marketplace'),
+        title: const Text('Pesticide Marketplace'),
       ),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
@@ -191,14 +189,14 @@ class _PesticideScreenState extends State<PesticideScreen> {
           ),
         ),
         child: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
               SearchBar(
                 controller: _searchController,
                 onChanged: _filterPesticides,
               ),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 16.0),
               Expanded(
                 child: PesticideList(
                   pesticides: _filteredPesticides,
@@ -229,7 +227,7 @@ class SearchBar extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(8.0),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: Colors.black26,
             blurRadius: 4.0,
@@ -239,7 +237,7 @@ class SearchBar extends StatelessWidget {
       ),
       child: TextField(
         controller: controller,
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
           prefixIcon: Icon(Icons.search, color: Colors.grey),
           hintText: 'Search',
           border: InputBorder.none,
@@ -268,24 +266,23 @@ class PesticideList extends StatelessWidget {
       itemBuilder: (context, index) {
         final pesticide = pesticides[index];
         return Padding(
-          padding: EdgeInsets.symmetric(vertical: 8.0),
+          padding: const EdgeInsets.symmetric(vertical: 8.0),
           child: ElevatedButton.icon(
             onPressed: () {
               onTap(pesticide);
             },
-            icon: Icon(Icons.shopping_cart),
+            icon: const Icon(Icons.shopping_cart),
             label: Text(
               pesticide.name,
-              style: TextStyle(fontSize: 18.0),
+              style: const TextStyle(fontSize: 18.0),
             ),
             style: ElevatedButton.styleFrom(
-              primary: Colors.white,
-              onPrimary: Colors.black,
+              foregroundColor: Colors.black, backgroundColor: Colors.white,
               elevation: 4.0,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8.0),
               ),
-              side: BorderSide(
+              side: const BorderSide(
                 color: Colors.black26,
                 width: 1.0,
               ),
@@ -314,26 +311,26 @@ class PesticideDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Pesticide Details'),
+        title: const Text('Pesticide Details'),
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
               pesticide.name,
-              style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             Text(
               pesticide.description,
-              style: TextStyle(fontSize: 18.0),
+              style: const TextStyle(fontSize: 18.0),
             ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             ElevatedButton(
               onPressed: _launchURL,
-              child: Text('Buy'),
+              child: const Text('Buy'),
             ),
           ],
         ),

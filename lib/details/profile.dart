@@ -3,6 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ProfileScreen extends StatefulWidget {
+  const ProfileScreen({super.key});
+
   @override
   _ProfileScreenState createState() => _ProfileScreenState();
 }
@@ -13,10 +15,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
   late User _user;
   Map<String, dynamic>? _userData;
 
-  TextEditingController _nameController = TextEditingController();
-  TextEditingController _contactNoController = TextEditingController();
-  TextEditingController _addressController = TextEditingController();
-  TextEditingController _emailController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _contactNoController = TextEditingController();
+  final TextEditingController _addressController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
 
   bool _isEditing = false;
 
@@ -61,7 +63,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       });
 
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text('Profile updated successfully.'),
         ),
       );
@@ -69,7 +71,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       toggleEditing(); // Disable editing after profile update
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text('Failed to update profile.'),
         ),
       );
@@ -80,14 +82,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Profile'),
+        title: const Text('Profile'),
       ),
       resizeToAvoidBottomInset: false, // Prevents resizing when the keyboard is displayed
       // body: SingleChildScrollView(
       body: Stack(
         children: [
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('images/frame2.jpeg'),
                 fit: BoxFit.cover,
@@ -101,8 +103,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 30.0),
-                Align(
+                const SizedBox(height: 30.0),
+                const Align(
                   alignment: Alignment.topLeft,
                   child: Text(
                     'Email:',
@@ -116,11 +118,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   alignment: Alignment.topLeft,
                   child: Text(
                     _userData?['email'] ?? 'N/A',
-                    style: TextStyle(fontSize: 18.0),
+                    style: const TextStyle(fontSize: 18.0),
                   ),
                 ),
-                SizedBox(height: 24.0),
-                Align(
+                const SizedBox(height: 24.0),
+                const Align(
                   alignment: Alignment.topLeft,
                   child: Text(
                     'Name:',
@@ -132,15 +134,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   child: _isEditing
                       ? TextField(
                     controller: _nameController,
-                    style: TextStyle(fontSize: 24.0),
+                    style: const TextStyle(fontSize: 24.0),
                   )
                       : Text(
                     _userData?['name'] ?? 'N/A',
-                    style: TextStyle(fontSize: 22.0),
+                    style: const TextStyle(fontSize: 22.0),
                   ),
                 ),
-                SizedBox(height: 24.0),
-                Align(
+                const SizedBox(height: 24.0),
+                const Align(
                   alignment: Alignment.topLeft,
                   child: Text(
                     'Contact No:',
@@ -152,15 +154,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   child: _isEditing
                       ? TextField(
                     controller: _contactNoController,
-                    style: TextStyle(fontSize: 24.0),
+                    style: const TextStyle(fontSize: 24.0),
                   )
                       : Text(
                     _userData?['contactNo'] ?? 'N/A',
-                    style: TextStyle(fontSize: 22.0),
+                    style: const TextStyle(fontSize: 22.0),
                   ),
                 ),
-                SizedBox(height: 24.0),
-                Align(
+                const SizedBox(height: 24.0),
+                const Align(
                   alignment: Alignment.topLeft,
                   child: Text(
                     'Address:',
@@ -172,23 +174,23 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   child: _isEditing
                       ? TextField(
                     controller: _addressController,
-                    style: TextStyle(fontSize: 23.0),
+                    style: const TextStyle(fontSize: 23.0),
                   )
                       : Text(
                     _userData?['address'] ?? 'N/A',
-                    style: TextStyle(fontSize: 22.0),
+                    style: const TextStyle(fontSize: 22.0),
                   ),
                 ),
-                SizedBox(height: 50.0),
+                const SizedBox(height: 50.0),
                 if (!_isEditing)
                   ElevatedButton(
                     onPressed: toggleEditing,
-                    child: Text('Edit Information' ,style: TextStyle(fontSize: 16)),
+                    child: const Text('Edit Information' ,style: TextStyle(fontSize: 16)),
                   ),
                 if (_isEditing)
                   ElevatedButton(
                     onPressed: updateProfile,
-                    child: Text('Update Profile'),
+                    child: const Text('Update Profile'),
                   ),
               ],
             ),

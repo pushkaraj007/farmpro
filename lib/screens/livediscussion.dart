@@ -11,7 +11,7 @@ class DiscussionForumScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('images/frame6.png'),
             fit: BoxFit.fill,
@@ -21,7 +21,7 @@ class DiscussionForumScreen extends StatelessWidget {
           backgroundColor: Colors.transparent,
 
           appBar: AppBar(
-            title: Text('Discussion Forum'),
+            title: const Text('Discussion Forum'),
           ),
           body: Stack(
             children: [
@@ -29,7 +29,7 @@ class DiscussionForumScreen extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Container(
-                      padding: EdgeInsets.fromLTRB(16, 15, 16, 10),
+                      padding: const EdgeInsets.fromLTRB(16, 15, 16, 10),
                       child: StreamBuilder<QuerySnapshot>(
                         stream: FirebaseFirestore.instance
                             .collection('posts')
@@ -38,13 +38,13 @@ class DiscussionForumScreen extends StatelessWidget {
                         builder: (context, snapshot) {
                           if (snapshot.connectionState ==
                               ConnectionState.waiting) {
-                            return Center(
+                            return const Center(
                               child: CircularProgressIndicator(),
                             );
                           }
 
                           if (!snapshot.hasData) {
-                            return Center(
+                            return const Center(
                               child: Text('No posts available.'),
                             );
                           }
@@ -69,7 +69,7 @@ class DiscussionForumScreen extends StatelessWidget {
                               final formattedDate = DateFormat('yyyy-MM-dd')
                                   .format(dateTime!);
                               final formattedTime = DateFormat('HH:mm').format(
-                                  dateTime!);
+                                  dateTime);
 
                               return GestureDetector(
                                 onTap: () {
@@ -84,27 +84,27 @@ class DiscussionForumScreen extends StatelessWidget {
                                   );
                                 },
                                 child: Card(
-                                  margin: EdgeInsets.only(bottom: 16),
+                                  margin: const EdgeInsets.only(bottom: 16),
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(8),
                                   ),
                                   elevation: 3,
                                   child: Padding(
                                     padding:
-                                    EdgeInsets.fromLTRB(16, 14, 16, 14),
+                                    const EdgeInsets.fromLTRB(16, 14, 16, 14),
                                     child: Column(
                                       crossAxisAlignment:
                                       CrossAxisAlignment.start,
                                       children: [
                                         Text(
                                           _getPreviewText(content),
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                             fontSize: 18,
                                             fontWeight: FontWeight.w400,
                                             color: Colors.black87,
                                           ),
                                         ),
-                                        SizedBox(height: 9),
+                                        const SizedBox(height: 9),
                                         if (imageUrl != null)
                                           Container(
                                             height: 200,
@@ -121,7 +121,7 @@ class DiscussionForumScreen extends StatelessWidget {
 
 
 
-                                        SizedBox(height: 10),
+                                        const SizedBox(height: 10),
                                         Row(
                                           children: [
                                             Icon(
@@ -129,7 +129,7 @@ class DiscussionForumScreen extends StatelessWidget {
                                               size: 16,
                                               color: Colors.grey[600],
                                             ),
-                                            SizedBox(width: 5),
+                                            const SizedBox(width: 5),
                                             Text(
                                               'Posted by: $authorEmail',
                                               style: TextStyle(
@@ -139,7 +139,7 @@ class DiscussionForumScreen extends StatelessWidget {
                                             ),
                                           ],
                                         ),
-                                        SizedBox(height: 10),
+                                        const SizedBox(height: 10),
                                         Row(
                                           children: [
                                             Icon(
@@ -147,7 +147,7 @@ class DiscussionForumScreen extends StatelessWidget {
                                               size: 16,
                                               color: Colors.grey[600],
                                             ),
-                                            SizedBox(width: 5),
+                                            const SizedBox(width: 5),
                                             Text(
                                               'Posted on: $formattedDate at $formattedTime',
                                               style: TextStyle(
@@ -157,7 +157,7 @@ class DiscussionForumScreen extends StatelessWidget {
                                             ),
                                           ],
                                         ),
-                                        SizedBox(height: 10),
+                                        const SizedBox(height: 10),
                                         Row(
                                           children: [
                                             Icon(
@@ -165,7 +165,7 @@ class DiscussionForumScreen extends StatelessWidget {
                                               size: 16,
                                               color: Colors.grey[600],
                                             ),
-                                            SizedBox(width: 5),
+                                            const SizedBox(width: 5),
                                             Text(
                                               'Views: $viewCount',
                                               style: TextStyle(
@@ -173,13 +173,13 @@ class DiscussionForumScreen extends StatelessWidget {
                                                 color: Colors.grey[600],
                                               ),
                                             ),
-                                            SizedBox(width: 20),
+                                            const SizedBox(width: 20),
                                             Icon(
                                               Icons.thumb_up,
                                               size: 16,
                                               color: Colors.grey[600],
                                             ),
-                                            SizedBox(width: 5),
+                                            const SizedBox(width: 5),
                                             Text(
                                               'Likes: $likeCount',
                                               style: TextStyle(
@@ -187,13 +187,13 @@ class DiscussionForumScreen extends StatelessWidget {
                                                 color: Colors.grey[600],
                                               ),
                                             ),
-                                            SizedBox(width: 20),
+                                            const SizedBox(width: 20),
                                             Icon(
                                               Icons.reply,
                                               size: 16,
                                               color: Colors.grey[600],
                                             ),
-                                            SizedBox(width: 5),
+                                            const SizedBox(width: 5),
                                             Text(
                                               'Replies: $replyCount',
                                               style: TextStyle(
@@ -283,19 +283,19 @@ class _PostInputFieldState extends State<PostInputField> {
     final pickedImage = await showDialog(
       context: context,
       builder: (BuildContext context) => AlertDialog(
-        title: Text('Select Image Source'),
+        title: const Text('Select Image Source'),
         content: SingleChildScrollView(
           child: ListBody(
             children: <Widget>[
               GestureDetector(
-                child: Text('Gallery'),
+                child: const Text('Gallery'),
                 onTap: () async {
                   Navigator.of(context).pop(await imagePicker.pickImage(source: ImageSource.gallery));
                 },
               ),
-              Padding(padding: EdgeInsets.all(8.0)),
+              const Padding(padding: EdgeInsets.all(8.0)),
               GestureDetector(
-                child: Text('Camera'),
+                child: const Text('Camera'),
                 onTap: () async {
                   Navigator.of(context).pop(await imagePicker.pickImage(source: ImageSource.camera));
                 },
@@ -317,10 +317,10 @@ class _PostInputFieldState extends State<PostInputField> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.fromLTRB(16, 10, 16, 10),
+      padding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
       decoration: BoxDecoration(
         color: Colors.grey[200],
-        borderRadius: BorderRadius.vertical(
+        borderRadius: const BorderRadius.vertical(
           top: Radius.circular(0),
         ),
       ),
@@ -328,7 +328,7 @@ class _PostInputFieldState extends State<PostInputField> {
         children: [
           Expanded(
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 16.0),
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(10),
@@ -336,7 +336,7 @@ class _PostInputFieldState extends State<PostInputField> {
                   BoxShadow(
                     color: Colors.grey.withOpacity(0.3),
                     blurRadius: 3,
-                    offset: Offset(0, 2),
+                    offset: const Offset(0, 2),
                   ),
                 ],
               ),
@@ -357,12 +357,12 @@ class _PostInputFieldState extends State<PostInputField> {
                               ),
                             ),
                           ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         TextField(
                           controller: _postController,
                           maxLines: null,
                           keyboardType: TextInputType.multiline,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             hintText: 'Enter your post...',
                             border: InputBorder.none,
                           ),
@@ -372,11 +372,11 @@ class _PostInputFieldState extends State<PostInputField> {
                   ),
                   IconButton(
                     onPressed: _pickImage,
-                    icon: Icon(Icons.image),
+                    icon: const Icon(Icons.image),
                   ),
                   ElevatedButton(
                     onPressed: _addPost,
-                    child: Text('Post'),
+                    child: const Text('Post'),
                     style: ElevatedButton.styleFrom(
                       primary: Colors.green,
                       elevation: 0,
@@ -466,7 +466,7 @@ class _PostDetailsScreenState extends State<PostDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
@@ -479,7 +479,7 @@ class _PostDetailsScreenState extends State<PostDetailsScreen> {
         ),
     child: Scaffold(
       appBar: AppBar(
-        title: Text('Post Details'),
+        title: const Text('Post Details'),
       ),
       body : Container(
         // decoration: BoxDecoration(
@@ -497,7 +497,7 @@ class _PostDetailsScreenState extends State<PostDetailsScreen> {
         stream: _postsCollection.doc(widget.postId).snapshots(),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           }
@@ -512,14 +512,14 @@ class _PostDetailsScreenState extends State<PostDetailsScreen> {
           final timestamp = post['timestamp'] as Timestamp?;
           final dateTime = timestamp?.toDate();
           final formattedDate = DateFormat('yyyy-MM-dd').format(dateTime!);
-          final formattedTime = DateFormat('HH:mm').format(dateTime!);
+          final formattedTime = DateFormat('HH:mm').format(dateTime);
           // final dateTime = timestamp.toDate();
           final imageUrl = post['imageUrl'];
 
           final replies = post['replies'] as List<dynamic>? ?? [];
 
           return SingleChildScrollView(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             child: Container(
               child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -535,16 +535,16 @@ class _PostDetailsScreenState extends State<PostDetailsScreen> {
                       ),
                     ),
                   ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Text(
                   content,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w400,
                     color: Colors.black87,
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Row(
                   children: [
                     Icon(
@@ -552,7 +552,7 @@ class _PostDetailsScreenState extends State<PostDetailsScreen> {
                       size: 16,
                       color: Colors.grey[600],
                     ),
-                    SizedBox(width: 5),
+                    const SizedBox(width: 5),
                     Text(
                       'Posted by: $authorEmail',
                       style: TextStyle(
@@ -562,7 +562,7 @@ class _PostDetailsScreenState extends State<PostDetailsScreen> {
                     ),
                   ],
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Row(
                   children: [
                     Icon(
@@ -570,7 +570,7 @@ class _PostDetailsScreenState extends State<PostDetailsScreen> {
                       size: 16,
                       color: Colors.grey[600],
                     ),
-                    SizedBox(width: 5),
+                    const SizedBox(width: 5),
                     Text(
                       'Posted on: ${formattedDate.toString()}',
                       style: TextStyle(
@@ -580,7 +580,7 @@ class _PostDetailsScreenState extends State<PostDetailsScreen> {
                     ),
                   ],
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Row(
                   children: [
                     Icon(
@@ -589,7 +589,7 @@ class _PostDetailsScreenState extends State<PostDetailsScreen> {
                       color: Colors.grey[600],
                     ),
 
-                    SizedBox(width: 5),
+                    const SizedBox(width: 5),
                     Text(
                       'Views: $viewCount',
                       style: TextStyle(
@@ -597,14 +597,14 @@ class _PostDetailsScreenState extends State<PostDetailsScreen> {
                         color: Colors.grey[600],
                       ),
                     ),
-                    SizedBox(width: 20),
+                    const SizedBox(width: 20),
                     IconButton(
-                         icon: Icon(Icons.thumb_up),
+                         icon: const Icon(Icons.thumb_up),
                       onPressed: _addLike,
                       iconSize: 16,
                       color: Colors.grey[600],
                     ),
-                    SizedBox(width: 0),
+                    const SizedBox(width: 0),
                     Text(
                       'Likes: $likeCount',
                       style: TextStyle(
@@ -618,13 +618,13 @@ class _PostDetailsScreenState extends State<PostDetailsScreen> {
                     //   onPressed: _addLike,
                     // ),
 
-                    SizedBox(width: 20),
+                    const SizedBox(width: 20),
                     Icon(
                       Icons.reply,
                       size: 16,
                       color: Colors.grey[600],
                     ),
-                    SizedBox(width: 5),
+                    const SizedBox(width: 5),
                     Text(
                       'Replies: $replyCount',
                       style: TextStyle(
@@ -634,8 +634,8 @@ class _PostDetailsScreenState extends State<PostDetailsScreen> {
                     ),
                   ],
                 ),
-                SizedBox(height: 20),
-                Text(
+                const SizedBox(height: 20),
+                const Text(
                   'Replies:',
                   style: TextStyle(
                     fontSize: 16,
@@ -643,10 +643,10 @@ class _PostDetailsScreenState extends State<PostDetailsScreen> {
                     color: Colors.black87,
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 ListView.builder(
                   shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   itemCount: replies.length,
                   itemBuilder: (context, index) {
                     final reply = replies[index];
@@ -665,7 +665,7 @@ class _PostDetailsScreenState extends State<PostDetailsScreen> {
                             color: Colors.grey[1000],
                           ),
                         ),
-                        SizedBox(height: 5),
+                        const SizedBox(height: 5),
                         Text(
                           'Reply from: $replyAuthorEmail',
                           style: TextStyle(
@@ -679,23 +679,23 @@ class _PostDetailsScreenState extends State<PostDetailsScreen> {
                             color: Colors.grey[600],
                           ),
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                       ],
                     );
                   },
                 ),
-                SizedBox(height: 0),
+                const SizedBox(height: 0),
                 TextField(
                   controller: _replyController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     hintText: 'Write your reply',
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 ElevatedButton(
                   onPressed: _addReply,
-                  child: Text('Add Reply'),
+                  child: const Text('Add Reply'),
                 ),
               ],
             ),
